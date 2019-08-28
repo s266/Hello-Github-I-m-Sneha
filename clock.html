@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+	<style type="text/css">
+	*{background-color: black;}
+		#circle{
+			width: 500px;
+			height: 500px;
+			background: linear-gradient(yellow,#8000ff,pink);
+			border-radius: 50%;
+			margin:auto 30%;
+			border:blue solid 9px;
+
+		}
+		.center{
+			height: 10px;
+			width: 10px;
+			margin: auto;
+			top:-155px;
+			right: 7px;
+			left: 0px;
+			bottom: 0px;
+			border-right: 100%;
+			background: black;
+			position: absolute;
+
+		}
+		#hours{
+			width:7px;
+			height: 100px;
+			position: absolute;
+			background: red;
+			right: 0px;
+			top: 50px;
+			left: 0px;
+			margin: auto;
+			margin-top: 100px;
+			-webkit-transform-origin: bottom;
+		}
+		#seconds{
+			width:3px;
+			height: 160px;
+			position: absolute;
+			background: blue;
+			right: 20px;
+			top: 90px;
+			left: 0px;
+			margin: auto;
+			-webkit-transform-origin: bottom;
+		}
+		#minutes{
+			width:5px;
+			height: 130px;
+			position: absolute;
+			background: yellow;
+			right: 10px;
+			top:120px;
+			left: 0px;
+			margin: auto;
+			-webkit-transform-origin: bottom;
+		}
+		.tl{
+			width:8px;
+			height: 8px;
+			position: absolute;
+			background: green;
+			right: 0px;
+			left: 0px;
+			margin: auto;
+		}
+		.tr{
+			width:8px;
+			height: 8px;
+			position: absolute;
+			background: green;
+			right: 0px;
+			left: 450px;
+			top: 250px;
+			margin: auto;
+		}
+		.six{
+			width:8px;
+			height: 8px;
+			position: absolute;
+			background: green;
+			right: 0px;
+			left:0px;
+			top:  505px;
+			margin: auto;
+
+		}
+		.nine{
+			width:8px;
+			height: 8px;
+			position: absolute;
+			background: green;
+			right:515px;
+			left:0px;
+			top: 250px;
+			margin: auto;
+
+		}
+		
+
+	</style>
+	<script >
+		var c = 1;
+
+function msg()
+{
+	if (c == 1) 
+	{
+	var x = document.getElementById('circle');
+	x.style.background = "linear-gradient(#ff972f,#8000ff,#a61e4d,#ff972f,#ff0080)";
+	//window.document.body.style.background = "red"; 
+	c = 0; 
+	}
+	else{
+		c = 1;
+		var x = document.getElementById('circle');
+	x.style.background = "linear-gradient(#f783ac,#009acd,#f1e75c,#800080,#a5d8ff,#d0ebff,#e7f5ff)";	
+	//window.document.body.style.background = "blue";  
+	}
+	
+}
+setInterval("msg()",500);
+
+	</script>
+</head>
+<body onload="msg()">
+
+	<script >
+		function moveHands() {
+    with(new Date()) {
+        h = 30 * (getHours() % 12 + getMinutes() / 60);
+        m = 6 * getMinutes();
+        s = 6 * getSeconds();
+        document.getElementById('seconds').style.cssText = "-webkit-transform:rotate(" + s + "deg);";
+        document.getElementById('minutes').style.cssText = "-webkit-transform:rotate(" + m + "deg);";
+        document.getElementById('hours').style.cssText = "-webkit-transform:rotate(" + h + "deg);";
+
+        setTimeout(moveHands, 1000);
+    }
+}
+
+window.onload = moveHands;
+	
+	
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("digital").innerHTML = d.toLocaleTimeString();
+}
+</script>
+
+	<div id="circle">
+		<div class="center"></div>
+		<div id="hours"></div>
+		<div id="seconds"></div>
+		<div id="minutes"></div>
+		<div class="tl"></div>
+		<div class="tr"></div>
+		<div class="six"></div>
+		<div class="nine"></div>
+	</div><center><h1><h1><p id="digital" style="color: white;"></p></h1>
+	<h1 style="color: white;">Thanks... For watch</h1></h1></center>
+</body>
+</html>
